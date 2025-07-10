@@ -1,4 +1,4 @@
-import React from 'react'
+import '../components/styles/contact.css'
 import Form from '../components/Form'
 
 const Contact = () => {
