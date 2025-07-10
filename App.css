@@ -17,3 +17,13 @@
   background-color: #62a89d;
   padding: 2px;
 }
+
+.colab-container {
+  display: flex;
+  height: 30px;
+}
+
+.colab{
+  border: 1px green;
+  width: 20px;
+}
