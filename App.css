@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn{
+  background-color: #53769e;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.valeur{
+  font-size: 18px;
+  margin: 0 12px;
+  background-color: #62a89d;
+  padding: 2px;
+}
