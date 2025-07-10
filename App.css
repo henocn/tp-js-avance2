@@ -18,12 +18,12 @@
   padding: 2px;
 }
 
-.colab-container {
+.container {
   display: flex;
-  height: 30px;
+  justify-content: space-around;
+  background-color: rgba(111, 128, 109, 0.493);
 }
 
-.colab{
-  border: 1px green;
-  width: 20px;
+.colaborator{
+  border: 1px rgb(40, 141, 40);
 }
