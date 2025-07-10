@@ -2,7 +2,16 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+}
+.about-title{
+  font-weight: 800;
+  font-size: 40px;
+  color: hsl(212, 31%, 47%);
   text-align: center;
+}
+
+.paragraph{
+  font-size: 18;
 }
 
 .btn{
@@ -22,8 +31,32 @@
   display: flex;
   justify-content: space-around;
   background-color: rgba(111, 128, 109, 0.493);
+  margin-bottom: 10px;
 }
 
 .colaborator{
   border: 1px rgb(40, 141, 40);
+}
+.articles-container{
+  display: flex;
+  justify-content: space-between;
+}
+.article-card{
+  height: 300px;
+  border: 1px solid black;
+}
+.article-image{
+  height: 150px;
+}
+.article-name{
+  text-align: center;
+}
+.article-phone{
+  padding-left: 5px;
+}
+.article-email{
+  color: blue;
+  cursor: pointer;
+  padding-left: 5px;
+  font-weight: bold;
 }

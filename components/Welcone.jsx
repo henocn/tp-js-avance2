@@ -1,11 +1,10 @@
-import React from 'react'
 import { colaborators } from '../data/colaborators'
 import {articles} from '../data/articles'
 import Article from '../components/Article'
 const Welcone = () => {
   return (
     <div>
-        <h2>Liste des collaborateurs</h2>
+        <h2 className='about-title'>Liste des collaborateurs</h2>
         <div className="container">
           {colaborators.map((col, _) => (
               <div key={_} className='colaborator'>
@@ -14,6 +13,7 @@ const Welcone = () => {
               </div>
           ))}
         </div>
+        <h2 className="article-header">Liste des articles</h2>
         <Article articles={articles} />
 
     </div>
