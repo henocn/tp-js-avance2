@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Form = () => {
+  const [form, setForm] = useState({ name: '', email: '', phone: '' });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form data:', form);
+  };
+
   return (
     <div>
-      <form method="POST" className='form'>
-        <div className="name-div">
-          <label htmlFor="name" className="name-label">Your name</label>
-          <input type="text" className="name-input" id='name' name='name' />
+      <form className='form' onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name" className="form-label">Your name</label>
+          <input type="text" className="form-input" id='name' name='name' value={form.name} onChange={handleChange} />
         </div>
-        <div className="email-div">
-          <label htmlFor="" className="email-label">Enter email</label>
-          <input type="email" className="email-input" id='email' name='email' />
-
+        <div className="form-group">
+          <label htmlFor="email" className="form-label">Enter email</label>
+          <input type="email" className="form-input" id='email' name='email' value={form.email} onChange={handleChange} />
         </div>
-        <div className="phone-div">
-          <label htmlFor="phone" className="phone-label">Phone number</label>
-          <input type="text" className="phone-input" id='phone' name='phone' />
+        <div className="form-group">
+          <label htmlFor="phone" className="form-label">Phone number</label>
+          <input type="text" className="form-input" id='phone' name='phone' value={form.phone} onChange={handleChange} />
         </div>
-        <div className="submit-div">
-          <input type="submit" className="submit" />
+        <div className="form-actions">
+          <button type="submit" className="form-submit">Envoyer</button>
         </div>
       </form>
     </div>
