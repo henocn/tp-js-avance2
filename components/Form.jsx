@@ -1,31 +1,30 @@
 import React, { useState } from 'react'
 
 const Form = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '' });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form data:', form);
-  };
+  const handleSubmit2 = (event) =>{
+    event.preventDefault();
+    alert('NAME: ' + name + ' EMAIL: ' + email + ' PHONE: ' + phone);
+  }
 
   return (
     <div>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleSubmit2}>
         <div className="form-group">
           <label htmlFor="name" className="form-label">Your name</label>
-          <input type="text" className="form-input" id='name' name='name' value={form.name} onChange={handleChange} />
+          <input type="text" className="form-input" id='name' name='name' value={name} onChange={e => setName(e.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="email" className="form-label">Enter email</label>
-          <input type="email" className="form-input" id='email' name='email' value={form.email} onChange={handleChange} />
+          <input type="email" className="form-input" id='email' name='email' value={email} onChange={e => setEmail(e.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="phone" className="form-label">Phone number</label>
-          <input type="text" className="form-input" id='phone' name='phone' value={form.phone} onChange={handleChange} />
+          <input type="text" className="form-input" id='phone' name='phone' value={phone} onChange={e => setPhone(e.target.value)} />
         </div>
         <div className="form-actions">
           <button type="submit" className="form-submit">Envoyer</button>
