@@ -1,12 +1,16 @@
+import Navbar from '../components/Navbar'
 import '../components/styles/contact.css'
 import Form from '../components/Form'
 
 const Contact = () => {
   return (
-    <div>
+    <>
+      <Navbar />
+      <div className="main-content">
         <Form />
-    </div>
-  )
+      </div>
+    </>
+  );
 }
 
 export default Contact
