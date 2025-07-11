@@ -4,6 +4,7 @@ const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [students, setStudents] = useState([])
   
 
   const handleSubmit2 = (event) =>{
