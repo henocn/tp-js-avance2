@@ -1,16 +1,16 @@
 import Navbar from '../components/Navbar'
 import '../components/styles/contact.css'
-import Form from '../components/Form'
+import StudentFormList from '../components/StudentFormList';
 
-const Etudiant = () => {
+const Students = () => {
   return (
     <>
       <Navbar />
       <div className="main-content">
-        <Form />
+        <StudentFormList />
       </div>
     </>
   );
 }
 
-export default Etudiant
+export default Students

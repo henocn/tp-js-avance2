@@ -1,11 +1,11 @@
 
-import "./App.css"   
+import "./App.css"
+import "./components/styles/bootstrap.css"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Form from "./components/Form"
 import Contact from "./pages/Contact"
 import { Routes, Route } from "react-router-dom"
-import Etudiant from "./pages/Etudiants"
+import Students from "./pages/Students"
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/about" element={<About/>} />
             <Route path="/contact" element={<Contact/>} />
-            <Route path="/students" element={<Etudiant/>} />
+            <Route path="/students" element={<Students/>} />
         </Routes>
         
     )
