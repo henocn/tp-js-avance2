@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ShoppingCart, Heart, Truck, ShieldCheck, ArrowLeft } from "lucide-react";
+import AddToCartModal from "../components/AddToCartModal";
+
 import axios from "../axios";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios.get(`/products/${id}`).then((res) => {
@@ -22,6 +25,9 @@ const ProductDetail = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      {showModal && (
+        <AddToCartModal product={product} onClose={() => setShowModal(false)} />
+      )}
       <button
         onClick={() => navigate("/")}
         className="mb-6 flex items-center text-orange-600 hover:underline text-sm"
@@ -51,7 +57,10 @@ const ProductDetail = () => {
             <span className="text-2xl font-bold text-orange-600">
               {product.price} FCFA
             </span>
-            <button className="flex items-center gap-2 bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition">
+            <button
+              onClick={() => setShowModal(true)}
+              className="flex items-center gap-2 bg-orange-600 text-white px-5 py-2 rounded-full hover:bg-orange-700 transition"
+            >
               <ShoppingCart size={18} />
               Ajouter au panier
             </button>
