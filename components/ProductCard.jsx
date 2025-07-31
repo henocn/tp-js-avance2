@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { ShoppingCart, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import AddToCartModal from "../components/AddToCartModal";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div
@@ -17,15 +20,25 @@ const ProductCard = ({ product }) => {
       />
     </div>
 
+    {showModal && (
+      <AddToCartModal product={product} onClose={() => setShowModal(false)} />
+    )}
+
     {/* Contenu */}
     <div className="p-4 space-y-2">
       <h3 className="font-semibold text-lg text-gray-900">{product.name}</h3>
       <p className="text-sm text-gray-500 line-clamp-2">{product.description}</p>
       <div className="flex items-center justify-between mt-2">
         <span className="text-orange-600 font-bold">{product.price} FCFA</span>
-        <button className="bg-orange-100 text-orange-600 p-2 rounded-full hover:bg-orange-200 transition">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowModal(true);
+          }}
+          className="bg-orange-100 text-orange-600 p-2 rounded-full hover:bg-orange-200 transition cursor-pointer">
           <ShoppingCart className="w-5 h-5" />
         </button>
+
       </div>
     </div>
 
