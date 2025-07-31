@@ -1,10 +1,16 @@
-import Home from "./pages/Home"
-import { Route, Routes } from "react-router-dom"
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
 
-export default function App() {
+function App() {
   return (
-    <div className="bg-black text-white min-h-screen flex justify-center items-center">
-      <h1 className="text-5xl font-extrabold text-green-400">Test Tailwind OK ✅</h1>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   );
 }
+
+export default App;
