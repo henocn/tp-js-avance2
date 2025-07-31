@@ -18,7 +18,6 @@ const AddToCartModal = ({ product, onClose }) => {
             },
         ],
     };
-    console.log("order : ", order);
 
     try {
       await axios.post("/orders", order);
