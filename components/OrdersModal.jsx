@@ -1,4 +1,3 @@
-// src/components/OrdersModal.jsx
 import { X } from "lucide-react";
 
 const OrdersModal = ({ orders, onClose }) => {
