@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, CheckCircle } from "lucide-react";
 import axios from "../axios";
 
 const AddToCartModal = ({ product, onClose }) => {
@@ -10,17 +10,23 @@ const AddToCartModal = ({ product, onClose }) => {
   const handleOrder = async () => {
     if (quantity < 1) return;
     setLoading(true);
+    const order = {
+        products: [
+            {
+                productId: product.id,
+                quantity,
+            },
+        ],
+    };
+    console.log("order : ", order);
 
     try {
-      await axios.post("/orders", [{
-        productId: product.id,
-        quantity,
-      }]);
+      await axios.post("/orders", order);
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
         onClose();
-      }, 1500);
+      }, 2500);
     } catch (err) {
       console.error("Erreur lors de la commande :", err);
     } finally {
@@ -63,7 +69,8 @@ const AddToCartModal = ({ product, onClose }) => {
 
         {success && (
           <p className="text-green-600 text-sm mt-4 text-center">
-            ✅ Commande effectuée avec succès !
+            <CheckCircle className="inline-block mr-1" />
+            Commande effectuée avec succès !
           </p>
         )}
       </div>
