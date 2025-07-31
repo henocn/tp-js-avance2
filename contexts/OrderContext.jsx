@@ -7,16 +7,13 @@ export const useOrders = () => useContext(OrderContext);
 
 export const OrderProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchOrders = async () => {
     try {
       const res = await axios.get("/orders");
       setOrders(res.data);
-    } catch (err) {
-      console.error("Erreur lors de la récupération des commandes", err);
-    } finally {
-      setLoading(false);
+    } catch (error) {
+      console.error("Erreur de chargement des commandes :", error);
     }
   };
 
@@ -25,7 +22,7 @@ export const OrderProvider = ({ children }) => {
   }, []);
 
   return (
-    <OrderContext.Provider value={{ orders, setOrders, fetchOrders, loading }}>
+    <OrderContext.Provider value={{ orders, setOrders, fetchOrders }}>
       {children}
     </OrderContext.Provider>
   );

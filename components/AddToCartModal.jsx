@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { X, CheckCircle } from "lucide-react";
 import axios from "../axios";
+import { useOrders } from "../contexts/OrderContext";
 
 const AddToCartModal = ({ product, onClose }) => {
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { fetchOrders } = useOrders();
 
   const handleOrder = async () => {
     if (quantity < 1) return;
@@ -26,6 +28,7 @@ const AddToCartModal = ({ product, onClose }) => {
         setSuccess(false);
         onClose();
       }, 2500);
+    await fetchOrders();
     } catch (err) {
       console.error("Erreur lors de la commande :", err);
     } finally {
